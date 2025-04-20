@@ -1,7 +1,6 @@
 # WHO Cause of Death Data Explorer
 
 ![Screenshot Placeholder](deathtables_screenshot.png)
-*(Optional: Replace placeholder.png with an actual screenshot of your application)*
 
 This is a web application built with React, TypeScript, and Material UI to explore crude death rate data by cause of death across different countries and years, based on data primarily sourced from the World Health Organization (WHO).
 

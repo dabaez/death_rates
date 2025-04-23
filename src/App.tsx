@@ -30,9 +30,14 @@ export default function Main() {
     const [aboutDialogOpen, setAboutDialogOpen] = useState(false);
     const handleAboutDialogOpen = () => setAboutDialogOpen(true);
     const handleAboutDialogClose = () => setAboutDialogOpen(false);
+    const [ageStandarized, setAgeStandardized] = useState(true);
 
     const handleSelectedItemChange = useCallback((_event: (React.SyntheticEvent | null) , itemId: string) => {
         setSelectedItem(itemId);
+    }, []);
+
+    const handleAgeStandardizedChange = useCallback((_event: (React.SyntheticEvent | null) , isAgeStandardized: boolean) => {
+        setAgeStandardized(isAgeStandardized);
     }, []);
 
     useEffect(() => {
@@ -42,7 +47,8 @@ export default function Main() {
             setCurrentTableData(null);
             // await new Promise(r => setTimeout(r, 2000));
             try {
-                const response = await fetch(`/data/${selectedItem}.json`);
+                console.log(`Fetching data from /data/${ageStandarized?"asdr/":""}${selectedItem}.json`);
+                const response = await fetch(`/data/${ageStandarized?"asdr/":""}${selectedItem}.json`);
                 if (!response.ok) {
                     if (response.status === 404) {
                         throw new Error('Data not found for selected item ' + selectedItem);
@@ -61,7 +67,7 @@ export default function Main() {
         };
 
         fetchData();
-    }, [selectedItem]);
+    }, [selectedItem, ageStandarized]);
 
     return (
         <Box sx={{ flexGrow: 1, padding: 2, height: '90vh', display: 'flex', overflow: 'auto' }}>
@@ -77,7 +83,7 @@ export default function Main() {
                 </Grid>
                 <Grid size={{ xs: 12, md: 8 }} sx={{ order: { xs: 1, md: 2 }, height: '100%', display: 'flex', flexDirection: 'column' }}>
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: 2, position: 'relative', textAlign: 'center', pr: (theme) => theme.spacing(8) }}>
-                        <Typography variant="h6" gutterBottom>{LabelMapper[selectedItem]} - Crude death rates per 100 000 population by country</Typography>
+                        <Typography variant="h6" gutterBottom>{LabelMapper[selectedItem]} - {ageStandarized? "Age standarized":"Crude"} death rates per 100 000 population by country</Typography>
                         <Tooltip title="Data obtained from WHO" arrow sx={{ position: 'absolute', right: (theme) => theme.spacing(2), top: '50%', transform: 'translateY(-50%)' }}>
                             <IconButton
                                 size='small'
@@ -134,6 +140,8 @@ export default function Main() {
             <AboutDataDialog
                 open={aboutDialogOpen}
                 onClose={handleAboutDialogClose}
+                ageStandardized={ageStandarized}
+                setAgeStandardized={handleAgeStandardizedChange}
             />
         </Box>
 

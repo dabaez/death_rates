@@ -83,7 +83,7 @@ export default function Main() {
                 </Grid>
                 <Grid size={{ xs: 12, md: 8 }} sx={{ order: { xs: 1, md: 2 }, height: '100%', display: 'flex', flexDirection: 'column' }}>
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: 2, position: 'relative', textAlign: 'center', pr: (theme) => theme.spacing(8) }}>
-                        <Typography variant="h6" gutterBottom>{LabelMapper[selectedItem]} - {ageStandarized? "Age standarized":"Crude"} death rates per 100 000 population by country</Typography>
+                        <Typography variant="h6" gutterBottom>{LabelMapper[selectedItem]} - {ageStandarized? "Age standardized":"Crude"} death rates per 100 000 population by country</Typography>
                         <Tooltip title="Data obtained from WHO" arrow sx={{ position: 'absolute', right: (theme) => theme.spacing(2), top: '50%', transform: 'translateY(-50%)' }}>
                             <IconButton
                                 size='small'

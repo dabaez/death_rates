@@ -247,12 +247,12 @@ export default function DataTable({ data }: TableProps) {
                 columns={[
                     { field: 'Country', minWidth: 150, flex: 1, },
                     { field: 'ISO-3 Code', minWidth: 90, flex: 0.5, disableColumnMenu: true, sortable: false },
-                    { field: '2021', minWidth: 80, flex: 0.4, align: 'right', headerAlign: 'right', disableColumnMenu: true, },
-                    { field: '2020', minWidth: 80, flex: 0.4, align: 'right', headerAlign: 'right', disableColumnMenu: true, },
-                    { field: '2019', minWidth: 80, flex: 0.4, align: 'right', headerAlign: 'right', disableColumnMenu: true, },
-                    { field: '2015', minWidth: 80, flex: 0.4, align: 'right', headerAlign: 'right', disableColumnMenu: true, },
-                    { field: '2010', minWidth: 80, flex: 0.4, align: 'right', headerAlign: 'right', disableColumnMenu: true, },
-                    { field: '2000', minWidth: 80, flex: 0.4, align: 'right', headerAlign: 'right', disableColumnMenu: true, }
+                    { field: '2021', minWidth: 90, flex: 0.4, align: 'right', headerAlign: 'right', disableColumnMenu: true, },
+                    { field: '2020', minWidth: 90, flex: 0.4, align: 'right', headerAlign: 'right', disableColumnMenu: true, },
+                    { field: '2019', minWidth: 90, flex: 0.4, align: 'right', headerAlign: 'right', disableColumnMenu: true, },
+                    { field: '2015', minWidth: 90, flex: 0.4, align: 'right', headerAlign: 'right', disableColumnMenu: true, },
+                    { field: '2010', minWidth: 90, flex: 0.4, align: 'right', headerAlign: 'right', disableColumnMenu: true, },
+                    { field: '2000', minWidth: 90, flex: 0.4, align: 'right', headerAlign: 'right', disableColumnMenu: true, }
                 ]}
                 getRowClassName={(params) => `row-color-${country_color_map[params.row.id]}`}
                 disableRowSelectionOnClick={true}

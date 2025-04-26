@@ -23,6 +23,7 @@ const AboutDataDialog: React.FC<AboutDataDialogProps> = ({ open, onClose, ageSta
     // Link to WHO (replace with the specific page if you have one, otherwise GHO is good)
     const whoLink = "https://www.who.int/data/gho";
     const creditLink = "https://b4ez.com/about/";
+    const githubLink = "https://github.com/dabaez/death_rates";
 
     return (
         <Dialog
@@ -83,6 +84,9 @@ const AboutDataDialog: React.FC<AboutDataDialogProps> = ({ open, onClose, ageSta
                     Visualization and interface by {' '}
                     <Link href={creditLink} target="_blank" rel="noopener noreferrer">
                         b4ez.com
+                    </Link>. Open source code available at {' '}
+                    <Link href={githubLink} target="_blank" rel="noopener noreferrer">
+                        GitHub
                     </Link>.
                 </Typography>
 
